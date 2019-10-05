@@ -1867,6 +1867,13 @@ quadratic| $p = 2$
 
 ### Solving nonlinear equations
 
+Solving nonlinear equation
+$$f(x)=0,$$
+means to find such points $x^{\ast}$ such that $f(x^{\ast})=0$, where $f:\mathbb R\mapsto \mathbb R$ is nonlinear.
+
+There are many methods for determining the value of $x^{\ast}$ by successive approximation.
+With any such method we begin by choosing one or more values $x_0, x_1, \cdots, x_r$, more or less arbitrarily, and then successively obtain new values $x_n$, as certain functions of the previously obtained $x_0, x_1, x_2,\cdots, x_{n-1}$ and possibly those of the derivatives $f^{\prime}(x_0), \cdots, f^{\prime}(x_{n-1})$ or higher derivative information.
+
 - [Numerical methods: Solving nonlinear equations](http://www.fyzikazeme.sk/mainpage/stud_mat/nm/lecture2.pdf)
 - [Newton, Chebyshev, and Halley Basins of Attraction; A Complete Geometric Approach by Bart D. Stewart, Department of Mathematics, United States Military Academy](https://www.mi.sanu.ac.rs/vismath/stewart/index.html)
 - [Solutions of Equations in One Variable
@@ -1879,7 +1886,8 @@ Find a midpoint of interval $(a^k, b^k )$ and designate it $x^{k+1}=\frac{a^k+b^
 
 $$
 \left(a_{k+1}, b_{k+1}\right)
-=\left\{\begin{array}{ll}{\left(a_{k}, x_{k+1}\right),} & {\text { if } \quad f\left(a_{k}\right) f\left(x_{k+1}\right)<0} \\ {\left(x_{k+1}, b_{k}\right),} & {\text { if } \quad f\left(a_{k}\right) f\left(x_{k+1}\right)>0}\end{array}\right.
+=\left\{\begin{array}{ll}{\left(a_{k}, x_{k+1}\right),} & {\text { if } \quad f\left(a_{k}\right)  f\left(x_{k+1}\right)<0} \\
+{\left(x_{k+1}, b_{k}\right),} & {\text { if } \quad f\left(a_{k}\right) f\left(x_{k+1}\right)>0}\end{array}\right.
 $$
 
 **Regula falsi (false position) method**
@@ -2098,7 +2106,7 @@ where $x_i$ is the $i$ th component of $x\in\mathbb{R}^{n}$.
 
 This will lead to the operator splitting methods analysesed by [Wotao Yin](http://www.math.ucla.edu/~wotaoyin/index.html) and others.
 
-* [RELAXATION AND INERTIA IN FIXED-POINT ITERATIONS WITH APPLICATIONS](http://bipop.inrialpes.fr/people/malick/Docs/15-titan-iutzeler.pdf)
+
 * [ORIE 6326: Convex Optimization Operator Splitting](https://people.orie.cornell.edu/mru8/orie6326/lectures/splitting.pdf)
 * [Monotone Operator Splitting Methods](https://web.stanford.edu/class/ee364b/lectures/monotone_split_slides.pdf)
 * [A Course on First-Order, Operator Splitting, and Coordinate Update Methods for Optimization](http://www.math.ucla.edu/~wotaoyin/summer2016/)
@@ -2123,6 +2131,18 @@ This will lead to the operator splitting methods analysesed by [Wotao Yin](http:
 * https://damienscieur.com/sections/paper.html
 * [Generalized Framework for Nonlinear Acceleration](https://arxiv.org/abs/1903.08764v1)
 * [Nonlinear Acceleration of Stochastic Algorithms](https://papers.nips.cc/paper/6987-nonlinear-acceleration-of-stochastic-algorithms.pdf)
+
+**Relaxation and inertia**
+
+* [A Generic online acceleration scheme for Optimization algorithms via Relaxation and Inertia](https://arxiv.org/abs/1603.05398)
+* [RELAXATION AND INERTIA IN FIXED-POINT ITERATIONS WITH APPLICATIONS](http://bipop.inrialpes.fr/people/malick/Docs/15-titan-iutzeler.pdf)
+* [Weak Convergence of a Relaxed and Inertial Hybrid Projection-Proximal Point Algorithm for Maximal Monotone Operators in Hilbert Space](https://epubs.siam.org/doi/10.1137/S1052623403427859?mobileUi=0)
+* [FIRE: Fast Inertial Relaxation Engine for Optimization on All Scales](http://users.jyu.fi/~pekkosk/resources/pdf/FIRE.pdf)
+* [Monotonicity, Acceleration, Inertia, and the Proximal Gradient algorithm](http://www.iutzeler.org/pres/osl2017.pdf)
+* [Online Relaxation Method for Improving
+Linear Convergence Rates of the ADMM]()
+- http://www.iutzeler.org/
+- https://www.math.uni-bielefeld.de/~gaehler/
 
 ### Approximate Minimal Polynomial Extrapolation
 
@@ -2204,6 +2224,7 @@ If the Mann type iteration $\{x^k\}$ converges strongly to a point $p$, then $p$
 * [Some results on a modified Mann iterative scheme in a reflexive Banach space](https://fixedpointtheoryandapplications.springeropen.com/articles/10.1186/1687-1812-2013-227)
 * [Some results about Krasnosel'skiĭ-Mann iteration process](https://www.isr-publications.com/jnsa/articles-2534-some-results-about-krasnoselskii-mann-iteration-process)
 * [Convergence theorems for inertial KM-type algorithms](https://www.sciencedirect.com/science/article/pii/S0377042707003901)
+* [Modified inertial Mann algorithm and inertial CQ-algorithm for nonexpansive mappings](https://scinapse.io/papers/2562808805)
 
 There is an acceleration framework of fixed point iterations for the problem (2) called `Anderson Acceleration` or `regularized nonlinear acceleration`：
 
@@ -2375,9 +2396,11 @@ is a decay $\prod_{j=0}^{i-1}\rho_{t-j}$ term  in the I term.
 
 <img title="PID Optimizer" src="http://5b0988e595225.cdn.sohucs.com/images/20180720/904ace2258564f6b98e91ad71de6ff91.jpeg" width="60%" />
 
+****
 **PID optimizer**
 
 The proposed PID optimizer updates parameter $x$ at iteration $(t +1)$ by:
+
 * $V^{t+1}=\alpha V^t -r g(x^t)$
 * $D^{t+1}=\alpha D^t +(1-\alpha)(g(x^t)-g(x^{t-1}))$
 * $x^{t+1}=x^t+V^{t+1}+K_d D^{t+1}$
@@ -2535,21 +2558,19 @@ $$
 
 ## Stochastic Approximation
 
-[Clearing the Jungle of Stochastic Optimization](https://castlelab.princeton.edu/jungle/)
-
-[The Tradeoffs of Large-scale Learning](https://leon.bottou.org/talks/largescale)
-
-<img src = https://castlelab.princeton.edu/html/images/detvsstoch.jpg width=80% />
-
 [`Stochastic approximation` methods are a family of iterative methods typically used for *root-finding* problems or for *optimization* problems. The recursive update rules of stochastic approximation methods can be used, among other things, for solving linear systems when the collected data is corrupted by noise, or for approximating extreme values of functions which cannot be computed directly, but only estimated via noisy observations.](https://www.wikiwand.com/en/Stochastic_approximation)
 
 - [Kiefer-Wolfowitz Algorithm](https://link.springer.com/chapter/10.1007/978-1-4471-4285-0_4)
 - [Stochastic Process and Application](http://www.math.wayne.edu/~gyin/conf_web/index.html)
 
 
-**Robbins–Monro algorithm** introduced in 1951 by Herbert Robbins and Sutton Monro, presented a methodology for solving a root finding problem, where the function is represented as an expected value. Assume that we have a function ${\textstyle M(\theta )}$, and a constant ${\textstyle \alpha }$, such that the equation ${\textstyle M(\theta )=\alpha }$ has a unique root at ${\textstyle \theta ^{\ast}}$. It is assumed that while we cannot directly observe the function ${\textstyle M(\theta )}$, we can instead obtain measurements of the random variable ${\textstyle N(\theta )}$ where ${\textstyle \operatorname {E} [N(\theta )]=M(\theta )}$. The structure of the algorithm is to then generate iterates of the form:
+**Robbins–Monro algorithm** introduced in 1951 by Herbert Robbins and Sutton Monro, presented a methodology for solving a root finding problem, where the function is represented as an expected value.
+
+Assume that we have a function ${\textstyle M(\theta )}:\mathbb{R}\mapsto\mathbb{R}$, and a constant ${\textstyle \alpha \in\mathbb R}$, such that the equation ${\textstyle M(\theta )=\alpha }$ has a unique root at ${\textstyle \theta ^{\ast}}$.
+
+It is assumed that while we cannot directly observe the function ${\textstyle M(\theta )}$, we can instead obtain measurements of the random variable ${\textstyle N(\theta )}$ where ${\textstyle \mathbb{E} [N(\theta )]=M(\theta )}$. The structure of the algorithm is to then generate iterates of the form:
 $${\displaystyle {\theta}_{n+1}= {\theta}_{n} - a_{n}(N({\theta}_{n})-\alpha )}$$
-Here, $a_{1},a_{2},\dots$  is a sequence of positive step sizes. `Robbins and Monro` proved , Theorem 2 that $\theta_n$ converges in $L^{2}$ (and hence also in probability) to $\theta$ , and Blum later proved the convergence is actually with probability one, provided that:
+where $a_{1},a_{2},\dots$  is a sequence of positive step sizes. `Robbins and Monro` proved , Theorem 2 that $\theta_n$ converges in $L^{2}$ (and hence also in probability) to $\theta$ , and Blum later proved the convergence is actually with probability one, provided that:
 
 ${\textstyle N(\theta )}$ is uniformly bounded,
 ${\textstyle M(\theta )}$ is nondecreasing,
@@ -2558,13 +2579,27 @@ The sequence ${\textstyle a_{n}}$ satisfies the following requirements:
 $$\sum_{n=0}^{\infty} a_{n}=\infty \quad \fbox{ and }\quad \sum_{n=0}^{\infty} a_{n}^{2} < \infty \quad$$
 A particular sequence of steps which satisfy these conditions, and was suggested by Robbins–Monro, have the form: ${\textstyle a_{n}=a/n}$, for ${\textstyle a>0}$. Other series are possible but in order to average out the noise in ${\textstyle N(\theta )}$, the above condition must be met.
 
+The basic ideas of the Robbins–Monro scheme
+can be readily modified to provide successive approximations for the minimum
+(or maximum) of a unimodal regression function, as was shown by `Kiefer and
+Wolfowitz (1952)` who introduced a recursive scheme of the form
+
+$$\theta_{n+1}= {\theta}_{n} - a_{n}\Delta(x_{n})\tag{KW}$$
+
+to find the minimum $\theta$ of $M$ (or, equivalently, the solution of $dM/dx = 0$).
+
+During the nth stage of the Kiefer–Wolfowitz scheme, observations $y_n^{(1)}$ and $y_n^{(2)}$ are taken at the design levels $x_n^{(1)} = x_n + c_n$ and $x_n^{(2)} = x_n − c_n$, respectively. In (KW), $\Delta(x_n)=\frac{y_n^{(1)}-y_n^{(2)}}{2c_n}$ an and $c_n$ are positive constants such that $c_n \to 0$, $\sum (c_n/a_n)^2<\infty$ and $\sum a_n=\infty$.
+
+
 - [5 The Stochastic Approximation Algorithm](http://webee.technion.ac.il/people/shimkin/LCS11/ch5_SA.pdf)
 - [Chapter 15: Introduction to Stochastic Approximation Algorithms](http://www.professeurs.polymtl.ca/jerome.le-ny/teaching/DP_fall09/notes/lec11_SA.pdf)
 - [Dynamics of Stochastic Approximation](http://members.unine.ch/michel.benaim/perso/SPS99.pdf)
 - [Stochastic Approximation by Tze Leung Lai](https://statistics.stanford.edu/sites/g/files/sbiybj6031/f/2002-31.pdf)
 - [A Multivariate Stochastic Approximation Procedure](https://statistics.stanford.edu/research/multivariate-stochastic-approximation-procedure)
 - [The Robbins–Monro Stochastic Approximation Approach to a Discrimination Problem](https://statistics.stanford.edu/sites/g/files/sbiybj6031/f/JOH%20PHS%2008.pdf)
-- https://projecteuclid.org/download/pdf_1/euclid.aos/1051027873
+- [Stochastic approximation: invited paper](https://projecteuclid.org/download/pdf_1/euclid.aos/1051027873)
+- [Stochastic Approximation and Recursive Algorithms and Applications](https://link.springer.com/book/10.1007/b97441)
+- [Stochastic Approximations, Diffusion Limit and Small Random Perturbations of Dynamical Systems](http://web.mst.edu/~huwen/slides_stochastic_approximation_perturbation.pdf)
 
 ### Stochastic Gradient Descent
 
@@ -2689,6 +2724,7 @@ Gradient Confusion and Stochastic Gradient Descent](https://arxiv.org/pdf/1904.0
 * https://leon.bottou.org/papers/bottou-bousquet-2008
 * [Large-Scale Machine Learning with Stochastic Gradient Descent](https://datajobs.com/data-science-repo/Stochastic-Gradient-Descent-[Leon-Bottou].pdf)
 * [Trade off of Machine Learning](https://ai.googleblog.com/2018/12/the-neurips-2018-test-of-time-award.html)
+* [The Tradeoffs of Large-scale Learning](https://leon.bottou.org/talks/largescale)
 * https://sites.google.com/view/panos-toulis/implicit-sgd
 * http://dustintran.com/blog/on-asymptotic-convergence-of-averaged-sgd
 * https://github.com/ptoulis/implicit-sgd
@@ -2713,11 +2749,32 @@ $\color{green}{PS}$: [Zeyuan Allen-Zhu](http://www.arxiv-sanity.com/search?q=Zey
 
 - https://arxiv.org/pdf/1811.03962.pdf
 - http://www.arxiv-sanity.com/search?q=Zeyuan+Allen-Zhu
+
+#### Variance Reduction Stochastic Gradient Methods
+
 + [VR-SGD](https://arxiv.org/pdf/1802.09932.pdf)
++ http://ranger.uta.edu/~heng/CSE6389_15_slides/SGD2.pdf
++ [Variance reduction techniques for stochastic optimization](http://cbl.eng.cam.ac.uk/pub/Intranet/MLG/ReadingGroup/VarianceReductionTechniquesForStochasticOptimization.pdf)
++ [Stochastic Variance-Reduced Optimization
+for Machine Learning Part I](https://www.di.ens.fr/~fbach/fbach_tutorial_siopt_2017.pdf)
++ [Stochastic Variance-Reduced Optimization
+for Machine Learning Part II](https://www.di.ens.fr/~fbach/2017_SIOPT_NonX.pdf)
 + [Laplacian Smoothing Gradient Descent](https://www.simai.eu/wp-content/uploads/2018/07/Slides_WNLL_LSGD.pdf)
 + [Entropy SGD](http://59.80.44.48/www.columbia.edu/~aec2163/NonFlash/Papers/Entropy-SGD.pdf)
 + https://github.com/tdozat/Optimization
 + https://zhuanlan.zhihu.com/p/25473305
+
+### Stochastic Optimization
+
+Stochastic optimization problems are so diverse that the field has become fragmented into a Balkanized set of communities with competing algorithmic strategies and modeling styles. It is easy to spend a significant part of a career mastering the subtleties of each perspective on stochastic optimization, without recognizing the common themes.
+
+We have developed a unified framework that covers all of these books.
+We break all `sequential decision problems` into five components: `state variables`, `decision variables`, `exogenous information variables`, the `transition function` and the `objective function`, where we search over policies (functions) for making decisions.
+We have identified two core strategies for designing policies (policy search, and policies based on lookahead approximations), each of which further divides into two classes, creating four classes that cover all of the solution approaches.
+
+- [Clearing the Jungle of Stochastic Optimization](https://castlelab.princeton.edu/jungle/)
+
+<img src = https://castlelab.princeton.edu/html/images/detvsstoch.jpg width=80% />
 
 ## Distributed Optimization Methods
 
